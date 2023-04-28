@@ -14,6 +14,7 @@ public class HttpRequestUtils {
      * @return
      */
     public static Map<String, String> parseQueryString(String queryString) {
+
         return parseValues(queryString, "&");
     }
 
