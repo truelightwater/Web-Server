@@ -2,8 +2,6 @@ package webserver;
 
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +26,7 @@ public class WebServer {
             // 클라이언트가 연결될때까지 대기한다.
             Socket connection;
             while ((connection = listenSocket.accept()) != null) {
-                RequestHandler2 requestHandler = new RequestHandler2(connection);
+                RequestHandler requestHandler = new RequestHandler(connection);
                 requestHandler.start();
             }
         }

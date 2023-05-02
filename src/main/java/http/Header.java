@@ -6,7 +6,8 @@ import java.util.Map;
 
 public class Header {
     private static final Map<String, String> status = new HashMap<String, String>();
-    static{
+
+    static {
         status.put("200", "Ok");
         status.put("302", "Found");
         status.put("400", "Bad Request");

@@ -1,7 +1,7 @@
 package webserver;
 
+import controller.HttpServletController;
 import org.reflections.Reflections;
-import controller.Controller;
 import controller.Controller.urlMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class RequestMap {
     private static final Logger log = LoggerFactory.getLogger(RequestMap.class);
-    private static Map<String, Controller> map = new HashMap<>();
+    private static Map<String, HttpServletController> map = new HashMap<>();
 
     static {
         Class<urlMap> annotation = urlMap.class;
@@ -20,9 +20,9 @@ public class RequestMap {
         Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(annotation);
 
         for (Class<?> controller : annotated) {
-            urlMap urlMap = (urlMap) controller.getAnnotation(annotation);
+            urlMap urlMap = controller.getAnnotation(annotation);
             try {
-                map.put(urlMap.url(), (Controller) controller.newInstance());
+                map.put(urlMap.url(), (HttpServletController) controller.newInstance());
             } catch (InstantiationException | IllegalAccessException e) {
                 log.debug("annotation url mapping error!");
                 e.printStackTrace();
@@ -30,12 +30,12 @@ public class RequestMap {
         }
     }
 
-    public static Map<String, Controller> getMap() {
+    public static Map<String, HttpServletController> getMap() {
         return map;
     }
 
-    public static void setMap(Map<String, Controller> newMap) {
-        for (Map.Entry<String, Controller> pair : newMap.entrySet()) {
+    public static void setMap(Map<String, HttpServletController> newMap) {
+        for (Map.Entry<String, HttpServletController> pair : newMap.entrySet()) {
             map.put(pair.getKey(), pair.getValue());
         }
     }

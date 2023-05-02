@@ -11,7 +11,6 @@ import webserver.RequestHandler;
 
 import java.util.Map;
 
-@Controller.urlMap(url="create")
 public class CreateUser implements Controller {
 
     private static final Logger log = LoggerFactory.getLogger(RequestHandler.class);
