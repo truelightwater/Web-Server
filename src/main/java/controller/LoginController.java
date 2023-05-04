@@ -1,6 +1,5 @@
 package controller;
 
-
 import db.DataBase;
 import http.HttpRequest;
 import http.HttpResponse;
@@ -14,7 +13,7 @@ import webserver.RequestHandler;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller.urlMap(url="login")
+@HttpServletController.urlMap(url="login")
 public class LoginController implements HttpServletController {
 
     private static final Logger log = LoggerFactory.getLogger(RequestHandler.class);

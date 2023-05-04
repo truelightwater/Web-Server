@@ -9,7 +9,7 @@ import webserver.RequestHandler;
 
 import java.util.Map;
 
-@Controller.urlMap(url="create")
+@HttpServletController.urlMap(url = "create")
 public class CreateUserController implements HttpServletController {
 
     private static final Logger log = LoggerFactory.getLogger(RequestHandler.class);

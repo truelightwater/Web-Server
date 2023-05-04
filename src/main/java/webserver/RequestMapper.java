@@ -22,7 +22,7 @@ public class RequestMapper {
     public Response getResponse(HttpRequest req) {
         HttpServletController httpServletController;
 
-        //url 이 requestMapping 에 있을 경우 httpServletController 연결
+        // url 이 requestMapping 에 있을 경우 httpServletController 연결
         if (this.requestMapping != null && (httpServletController = requestMapping.get(req.getFileName())) != null) {
             return httpServletController.service(req);
 

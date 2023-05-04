@@ -2,13 +2,14 @@ package webserver;
 
 import controller.HttpServletController;
 import org.reflections.Reflections;
-import controller.Controller.urlMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static controller.HttpServletController.*;
 
 public class RequestMap {
     private static final Logger log = LoggerFactory.getLogger(RequestMap.class);
